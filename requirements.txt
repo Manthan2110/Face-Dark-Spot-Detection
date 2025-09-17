@@ -1,0 +1,12 @@
+opencv-python
+mediapipe
+mtcnn
+streamlit
+numpy
+pillow
+scipy
+scikit-image
+matplotlib
+dlib
+tensorflow
+imutils
