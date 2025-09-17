@@ -15,6 +15,12 @@ This project uses **OpenCV** and **Haar Cascade classifiers** to process face im
 ---
 
 ## Tested Outputs:
+<img width="1916" height="1016" alt="image" src="https://github.com/user-attachments/assets/a6b089ff-767e-48b7-a44d-c8a13588f3c9" />
+<img width="603" height="837" alt="image" src="https://github.com/user-attachments/assets/ef8e2d54-241d-45cc-96db-6bb3d50ed561" />
+
+## Multi-face Outpts:
+<img width="700" height="397" alt="image" src="https://github.com/user-attachments/assets/1925fd90-5c98-4ff4-b4d0-0c050051885f" />
+<img width="615" height="592" alt="image" src="https://github.com/user-attachments/assets/42d321cb-1de1-4f44-b7fe-139be795c4f8" />
 
 ---
 
