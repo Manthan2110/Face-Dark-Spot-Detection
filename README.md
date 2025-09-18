@@ -24,6 +24,29 @@ This project uses **OpenCV** and **Haar Cascade classifiers** to process face im
 
 ---
 
+## 📊 Severity Categorization
+
+This project includes a severity categorization feature to grade dark spot intensity:
+if final < 0.1:        <br>
+&nbsp;&nbsp;&nbsp;&nbsp; sev = "Minimal"        <br>
+elif final < 0.2:        <br>
+&nbsp;&nbsp;&nbsp;&nbsp;sev = "Mild"        <br>
+elif final < 0.4:        <br>
+&nbsp;&nbsp;&nbsp;&nbsp;sev = "Moderate"        <br>
+elif final < 0.6:        <br>
+&nbsp;&nbsp;&nbsp;&nbsp;sev = "Severe"        <br>
+else:                       <br>
+&nbsp;&nbsp;&nbsp;&nbsp;sev = "Very Severe"          <br>
+
+- Minimal: Barely noticeable dark spots.
+- Mild: Light pigmentation under the eyes.
+- Moderate: Clearly visible dark circles.
+- Severe: Prominent pigmentation and edges.
+- Very Severe: Intense dark spots requiring attention.
+
+---
+
+
 ## 🧩 Problem Statement
 
 Detecting facial features like eyes and dark spots can be useful for:  
@@ -61,12 +84,12 @@ Detecting facial features like eyes and dark spots can be useful for:
 ```bash
 face-darkspot-detector/
 │
-├── detector.py # Core detection logic for face, eyes, and dark spots
-├── utils.py # Helper functions for edge detection and formatting
-├── images/ # Sample input images for testing
-├── outputs/ # Processed images with annotations
-├── requirements.txt # Python dependencies
-└── README.md # Project documentation
+├── detector.py       # Core detection logic for face, eyes, and dark spots
+├── utils.py          # Helper functions for edge detection and formatting
+├── images/           # Sample input images for testing
+├── outputs/          # Processed images with annotations
+├── requirements.txt  # Python dependencies
+└── README.md         # Project documentation
 ```
 
 ---
@@ -101,13 +124,13 @@ face-darkspot-detector/
 
 ## 📧 Contact
 
-Developer: Manthan Jadav
-LinkedIn: Manthan Jadav[https://www.linkedin.com/in/manthanjadav/]
-Email: manthanjadav746@gmail.com[mailto:manthanjadav746@gmail.com]
+- 📌 Developed by: Manthan Jadav
+- 📫 [LinkedIn](https://www.linkedin.com/in/manthanjadav/)
+- ✉️ [Email](mailto:manthanjadav746@gmail.com)
 
 ---
 
-##📢 License
+## 📢 License
 
 This project is open-source and free to use.
 For educational and research purposes only.
