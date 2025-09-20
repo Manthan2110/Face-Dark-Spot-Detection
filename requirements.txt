@@ -10,3 +10,4 @@ matplotlib
 dlib
 tensorflow
 imutils
+streamlit-option-menu
