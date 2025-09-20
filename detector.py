@@ -74,7 +74,7 @@ class DarkCircleDetector:
         if final<0.1: sev="Minimal"
         elif final<0.2: sev="Mild"
         elif final<0.4: sev="Moderate"
-        elif final<0.6: sev="Severe"
+        elif final<0.6: sev="Severe"    
         else: sev="Very Severe"
 
         return float(final), sev
@@ -122,6 +122,22 @@ class DarkCircleDetector:
                                           font_scale=scale, thickness=1)
             occupied_regions.append(region)
 
+# ➕ ADDED: Draw rectangles below eyes only
+    def draw_dark_spot_rectangles(self, image: np.ndarray, eye_point: Tuple[int, int],
+                                  eye_region: np.ndarray, mask: np.ndarray, offset: int = 5):  # added
+        if mask is None or mask.size == 0:
+            return
+        contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        for cnt in contours:
+            area = cv2.contourArea(cnt)
+            if area < 20:
+                continue
+            x, y, w, h = cv2.boundingRect(cnt)
+            ex, ey = int(eye_point[0] - mask.shape[1] // 2), int(eye_point[1] - mask.shape[0] // 2)
+            # ➕ ADDED: Only draw if the spot is below the eye centerline
+            if (ey + y) > (eye_point[1] + offset):  # added
+                cv2.rectangle(image, (ex + x, ey + y), (ex + x + w, ey + y + h), (0, 0, 255), 2)  # added
+
     # Main processing function for an input image
     def process_image(self, image, edge_method):
         try:
@@ -143,16 +159,22 @@ class DarkCircleDetector:
 
                 # Left eye analysis
                 le_col,_=self.color_analysis_method(le_reg,le_skin)
-                le_hist,_=self.histogram_thresholding_method(le_reg)
+                le_hist,le_mask=self.histogram_thresholding_method(le_reg)
                 le_sev=self.calculate_severity_score(le_col,le_hist)
                 
                 # Right eye analysis
                 re_col,_=self.color_analysis_method(re_reg,re_skin)
-                re_hist,_=self.histogram_thresholding_method(re_reg)
+                re_hist,re_mask=self.histogram_thresholding_method(re_reg)
                 re_sev=self.calculate_severity_score(re_col,re_hist)
 
                 # Annotate results on image
                 self.annotate_face(annotated,box,le,re,le_sev,re_sev,i)
+
+                #added: Draw rectangles for left and right dark spots below eyes
+                if le is not None: 
+                    self.draw_dark_spot_rectangles(annotated, le, le_reg, le_mask)
+                if re is not None: 
+                    self.draw_dark_spot_rectangles(annotated, re, re_reg, re_mask)
 
                 # Collect face data
                 faces.append({'box':box,'confidence':det.get('confidence'),
