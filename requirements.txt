@@ -1,13 +1,10 @@
-opencv-python
-mediapipe
+opencv-python-headless
 mtcnn
 streamlit
+streamlit-option-menu
 numpy
 pillow
-scipy
 scikit-image
+scipy
 matplotlib
-dlib
-tensorflow
 imutils
-streamlit-option-menu
