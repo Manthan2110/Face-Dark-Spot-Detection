@@ -84,6 +84,8 @@ Detecting facial features like eyes and dark spots can be useful for:
 ```bash
 face-darkspot-detector/
 │
+├── .streamlit/
+      ├── config.yml         
 ├── detector.py       # Core detection logic for face, eyes, and dark spots
 ├── utils.py          # Helper functions for edge detection and formatting
 ├── images/           # Sample input images for testing
