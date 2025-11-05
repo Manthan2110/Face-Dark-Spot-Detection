@@ -1,6 +1,4 @@
 opencv-python-headless
-mtcnn
-streamlit
 streamlit-option-menu
 numpy
 pillow
@@ -8,3 +6,11 @@ scikit-image
 scipy
 matplotlib
 imutils
+streamlit
+opencv-python
+mediapipe==0.9.0.1
+mtcnn==0.1.1
+numpy
+tensorflow-cpu==2.12.0
+protobuf<=3.20.3
+
