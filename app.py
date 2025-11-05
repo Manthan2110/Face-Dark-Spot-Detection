@@ -10,7 +10,7 @@ st.set_page_config(page_title="Face Dark Spot & Eye Detection")
 st.title("🧑‍⚕️ Face Dark Spot & Eye Detection")
 st.write("An intelligent OpenCV-based app to detect faces, eyes, and dark spots.")
 
-@st.cache_data(show_spinner=False)
+@st.cache_resource 
 def load_detector():
     return DarkCircleDetector()
 
@@ -113,4 +113,3 @@ with st.sidebar:
         "Created with [OpenCV](https://opencv.org/) and [Streamlit](https://streamlit.io/).\n\n"
         "_Demo build by MANTHAN JADAV_"
     )
-
