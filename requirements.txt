@@ -6,5 +6,7 @@ numpy
 pillow
 scikit-image
 scipy
+tensorflow
 matplotlib
 imutils
+
